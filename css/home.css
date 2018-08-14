@@ -1,0 +1,204 @@
+
+
+
+
+.loginfield{
+	float:right;
+}
+
+.headercover{
+	margin: 0 auto;
+	padding-top: 13px;
+	width: 980px;
+}
+
+.banner{
+	height:100px;
+}
+
+.banner_color{
+	height:100px;
+	background-color:#202020;
+}
+
+form{
+	padding-top: 25px;
+}
+
+h1{
+	color: #65e52c;
+}
+
+.background{
+	display:block;
+	background-image: url('2 copy.png');
+	background-size:cover;
+	height:100%;
+	background-repeat: none;
+	padding-top: 10%;
+
+}
+
+.intro{
+	width:40%;
+	float:left;
+	margin-left: 10px;
+}
+
+.signupfield{
+	display:flex;
+	width:50%;
+	float:right;
+	
+
+}
+
+.signup{
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 40px;
+	width:95%;
+	background-color: white;
+	margin:10px;
+	border-radius: 8px;
+
+}
+
+p,.form{
+	color:white;
+}
+
+.formtext{
+	color:black;
+	font-size:20px;
+}
+
+.welcome_text{
+	font-size:18px;
+	text-align: left;
+}
+
+.username,.password,.email{
+	margin:0 0 20px 0;
+	border-radius: 3px;
+	border:1px line lightgrey;
+	height:35px;
+}
+
+.column{
+	margin:0 150px;
+}
+
+.signupbanner{
+	display: block;
+    height: 700px;
+}
+
+
+}
+
+.logo{
+	float:left;
+}
+
+
+
+.loginfield{
+	float:right;
+}
+
+.headercover{
+	margin: 0 auto;
+	padding-top: 13px;
+	width: 980px;
+}
+
+.banner{
+	height:100px;
+}
+
+.banner_color{
+	height:100px;
+	background-color:#202020;
+}
+
+form{
+	padding-top: 25px;
+}
+
+h1{
+	color: #65e52c;
+}
+
+.background{
+	display:block;
+	background-image: url('2 copy.png');
+	background-size:cover;
+	height:100%;
+	background-repeat: none;
+	padding-top: 10%;
+
+}
+
+.intro{
+	width:40%;
+	float:left;
+	margin-left: 10px;
+}
+
+.signupfield{
+	display:flex;
+	width:50%;
+	float:right;
+	
+
+}
+
+.signup{
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 40px;
+	width:95%;
+	background-color: white;
+	margin:10px;
+	border-radius: 8px;
+
+}
+
+p,.form{
+	color:white;
+}
+
+.formtext{
+	color:black;
+	font-size:20px;
+}
+
+.welcome_text{
+	font-size:18px;
+	text-align: left;
+}
+
+.username,.password,.email{
+	margin:0 0 20px 0;
+	border-radius: 3px;
+	border:1px line lightgrey;
+	height:35px;
+}
+
+.column{
+	margin:0 150px;
+}
+
+.signupbanner{
+	display: block;
+    height: 700px;
+}
+
+
+}
+
+
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+	<title></title>
+</head>
+<body>
+	<div id='container' class='container'>
+		<div id='background' class='background'>
+			<div id='topbar' class='topbar'>
+			<a onclick="volumeToggle()" href="#">
+          	<span class="glyphicon glyphicon-volume-up volume"></span></a>
+
+			<!-- Rounded switch -->
+			<label class="switch">
+			  <input type="checkbox">
+			  <span class="slider round"></span>
+			</label>
+
+			
+			
+			<a onclick="addFriends()" href="#"><span class='glyphicon glyphicon-plus-sign plus'></span></a>
+			<div id='mini' class="mini">
+			<a onclick="loadChatbox()" id='envelope' href="#"><span class='glyphicon glyphicon-envelope'></span></a>
+			<a onclick="loadMessage()" id='messages'  href="#"><span class='glyphicon glyphicon-comment'></span></a>
+			<a onclick="loadSetting()" id='options' href="#"><span class='glyphicon glyphicon-user'></span></a>
+			</div>
+
+			<div id='right' class="right">
+			<a id='growth' onclick="minimizePage()" href="#"><span id='size' class='glyphicon glyphicon-minus-sign	
+'></span></a>
+			<a onclick="exitPage()" href="#"><span class='glyphicon glyphicon-remove-sign'></span></a>
+			</div>
+
+
+	        
+			</div>	
+				<div id='main' class="main">
+					<div id='people' class='people'>
+
+					<!-- Template For User Display -->
+
+						 <h1 class="title">Friends</h1>
+						<!--<div class="person">
+							<img class='image' src="person2.jpg">
+							<div class='person_name'>
+								<h2 class='name'>John Miles</h2>
+								<p class='job'>UI Designer</p>
+							</div>
+							</div> -->
+					</div>
+					<div id='conversation' class='conversation'>
+						<div id='messages' class="messages">
+							<span class="glyphicon glyphicon-triangle-top"></span>
+						<p class='Loading'>LOAD OLDER MESSAGES</p><hr>
+						<div class='chat_message'>
+							<img src=''>
+							<p class='time'></p><br>
+							<p class='text'></p>
+						</div>
+						</div>
+						<div id='input' class="input">
+							<input id='pm' type="text" name="">
+								<button class="submit" type="submit" value="Post Message"></button>
+						</div>
+					</div>
+
+				</div>
+								<div id='message'>
+
+
+									$authArray[$i]
+									$messArray[$i]
+				
+				</div>
+				<div id='settings'>
+					<div class='field'>
+					<div class='option'>
+						<!-- <div class='group'>
+						<label class='settingLabel'>Show Photos Content</label>
+						<label class="click">
+			 			<input type="checkbox">
+			  			<span class="slider round"></span>
+						</label> 
+						</div> 
+						<hr> -->
+						<div class='group'>
+						<label class='settingLabel'>Font Style</label>
+						<select onchange="changeFont()"  id='font-style' class='font-style' name="font-family">
+						  <option class='colorPattern' value="Georgia">Georgia</option>
+						  <option class='colorPattern' value="Palatino">Palatino</option>
+						  <option class='colorPattern' value="Times">Times</option>
+						  <option class='colorPattern' value="Helvetica">Helvetica</option>
+						 </select>
+						</div>
+						<hr>
+						<div class='group'>
+						<label class='settingLabel' >Color Pattern</label>
+						<select onchange="colorPatternsDisplay()" id='color-style' class='color-style' name="font-family">
+						  <option class='colorPattern' value="Generic">Generic</option>
+						  <option class='colorPattern' value="Future">Future</option>
+						  <option class='colorPattern' value="Bright">Bright</option>
+						  <option class='colorPattern' value="Dark">Dark</option>
+						 </select>
+						</div>
+						<hr>
+					</div>
+					</div>
+				</div>
+				
+
+		</div>
+	</div>
+//Array Of Columns from Table Messages

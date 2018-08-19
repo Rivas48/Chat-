@@ -2,7 +2,7 @@
 	//Check userlogin variable is not set to send back to home
 	if($_SESSION['userlogin'] == ""){
 		header('Location: http://localhost:8881/Chat-Box%20Default/index.php');
-					queryMysql("UPDATE member SET status=0 WHERE user='$userlogin'"); 
+		queryMysql("UPDATE member SET status=0 WHERE user='$userlogin'"); 
 	}else{
 		$userlogin = $_SESSION['userlogin'];
 	};

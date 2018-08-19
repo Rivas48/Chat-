@@ -1,7 +1,3 @@
-
-
-
-
 .loginfield{
 	float:right;
 }
@@ -195,6 +191,11 @@ p,.form{
 .signupbanner{
 	display: block;
     height: 700px;
+}
+
+.error{
+	color:red;
+
 }
 
 

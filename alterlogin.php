@@ -1,12 +1,12 @@
 <?php
-	session_start();
-	if ($_SESSION['userlogin']) {
-		$_SESSION['userlogin'] = "";
-	}
-	$_SESSION['userlogin'] = "";
-	$appname = 'Chatbox';
-	require_once 'redirect.php';
-	require_once 'login.php';
+  session_start();
+  if ($_SESSION['userlogin']) {
+    $_SESSION['userlogin'] = "";
+  }
+  $_SESSION['userlogin'] = "";
+  $appname = 'Chatbox';
+  require_once 'redirect.php';
+  require_once 'login.php';
 ?>
 
 <!doctype html>
@@ -24,13 +24,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
     <form class="form-signin" action="alterlogin.php" method="post">
       <h1>Chatbox</h1>
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+       <h1 class="h3 mb-3 font-weight-normal"><?php $signinerror ?></h1>
       <label for="inputEmail" class="sr-only">Username</label>
       <input type="text" name='userlogin' id="inputEmail" class="form-control" placeholder="Username" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>

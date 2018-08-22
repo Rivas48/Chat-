@@ -8,7 +8,7 @@
 	};
 
 	//Click submit button
-	if (isset($_POST['submit'])) {
+	if (isset($_POST['submitMessage'])) {
 
 		//Check and Stop the page from submitting on refresh
 		if (isset($_POST['message']) and $_POST['message'] == $_SESSION['message']) 

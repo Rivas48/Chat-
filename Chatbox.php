@@ -15,7 +15,7 @@
 				<div id='container' class='container'>
 		<div id='background' class='background'>
 			<div id='topbar' class='topbar'>
-			<a onclick='volumeToggle()' href='#'>
+			<a id='volume'  href='#'>
           	<span class='glyphicon glyphicon-volume-up volume'></span></a>
 
 			<!-- Rounded switch -->
@@ -28,14 +28,16 @@
 			
 
 			<div id='mini' class='mini'>
-			<a onclick='loadChatbox()' id='envelopeicon' href='#'><span class='glyphicon glyphicon-envelope'></span></a>
-			<a onclick='loadOnlineList()' id='messagesicon'  href='#'><span class='glyphicon glyphicon-user'></span></a>
-			<a onclick='loadSetting()' id='optionsicon' href='#'><span class='glyphicon glyphicon-hdd'></span></a>
+			<a id='envelopeicon' href='#'><span class='glyphicon glyphicon-envelope'></span></a>
+			<a id='messagesicon' href='#'><span class='glyphicon glyphicon-user'></span></a>
+			<a id='optionsicon' href='#'><span class='glyphicon glyphicon-hdd'></span></a>
 			</div>
 
 			<div id='right' class='right'>
-			<a id='growth' onclick='minimizePage()' href='#'><span id='size' class='glyphicon glyphicon-minus-sign	
-'></span></a>
+			<a id='shrink'  href='#'><span id='small' class='glyphicon glyphicon-minus-sign	
+			'></span></a>
+			<a id='growth' class='none' href='#'><span id='big' class='glyphicon glyphicon-plus-sign 
+			'></span></a>
 			
 			</div>
 
@@ -60,7 +62,7 @@
 				<div id='input' class='input'>
 				<form id="post" action="Chatbox.php" method="post">
 				<input id='pm' type='text' name='message' value=''>
-				<input type='submit' value='submit' name='submit'>
+				<input type='submit' value='submit' name='submitMessage'>
 				<a href="#"><input type='submit' value='logout' name='logout'></a>
 				</form>
 
@@ -83,7 +85,7 @@
 						<hr> -->
 						<div class='group'>
 						<label class='settingLabel'>Font Style</label>
-						<select onchange="changeFont()"  id='font-style' class='font-style' name="font-family">
+						<select id='font-style' class='font-style' name="font-family">
 						  <option class='colorPattern' value="Georgia">Georgia</option>
 						  <option class='colorPattern' value="Palatino">Palatino</option>
 						  <option class='colorPattern' value="Times">Times</option>
@@ -93,7 +95,7 @@
 						<hr>
 						<div class='group'>
 						<label class='settingLabel' >Color Pattern</label>
-						<select onchange="colorPatternsDisplay()" id='color-style' class='color-style' name="font-family">
+						<select id='color-style' class='color-style' name="font-family">
 						  <option class='colorPattern' value="Generic">Generic</option>
 						  <option class='colorPattern' value="Future">Future</option>
 						  <option class='colorPattern' value="Bright">Bright</option>
@@ -129,10 +131,10 @@
 	const pm 				  = document.getElementById('pm');
 
 
-
-
 		// Selecting Buttons
+
 	var growthLink     		  = document.getElementById('growth');
+	var shrinkLink			  = document.getElementById('shrink');
 	var closeButton    		  = document.getElementsByClassName('glyphicon-remove-sign');
 	var minimizeButton 		  = document.getElementById('size');
 	var envelopeButton 		  = document.getElementById('envelopeicon');
@@ -141,9 +143,17 @@
 	var volumeButton   		  = document.getElementsByClassName('glyphicon-volume-up');
 	var toggleButton  		  = document.getElementsByClassName('slider'); 
 	var plusButton   		  = document.getElementsByClassName('glyphicon-plus-sign');
+	var volume = document.getElementById('volume');
 
 
-		//Functions 
+		//Functions
+
+	function addEvent(element, evnt, funct){
+    if(element.attachEvent)
+        return element.attach.Event('on'+evnt,funct);
+    else
+        return element.addEventListener(evnt,funct, false);
+   }     
 
 	function exitPage(){
 		backgroundSection.style.visibility = "hidden";
@@ -156,6 +166,8 @@
 	function volumeToggle(){
 
 	}
+
+	addEvent(volume, 'click',volumeToggle);
 
 	function addFriends(){
 		var createPerson 	  = document.createElement("div");
@@ -177,27 +189,37 @@
 	}
 
 	function minimizePage(){
-		interfaceSection.style.visibility  = 'hidden';
+		interfaceSection.style.display  = 'none';
+		onlineSection.style.display  = 'none';
+		settingSection.style.display  = 'none';
 		backgroundSection.style.background = 'white';
 		topbar.style.position              = 'absolute';
 		topbar.style.bottom                = '0px';
 		topbar.style.width                 = '100%';
 		topbar.style.left                  = '0px' ;
-		minimizeButton.classList.remove('glyphicon-minus-sign');
-		minimizeButton.className           = 'glyphicon glyphicon-fullscreen';
-		growthLink.setAttribute("onclick",'maximizePage()');
+		shrinkLink.style.display 	   = 'none';         
+		growthLink.style.display  	   = 'block';
+		growthLink.className  	   = '';		
+
 	}
 
+	addEvent(shrinkLink, 'click', minimizePage);
+
 	function maximizePage(){ 
+		interfaceSection.style.display  = 'flex';
+		onlineSection.style.display  = 'none';
+		settingSection.style.display  = 'none';
 		interfaceSection.style.visibility  = '';
 		backgroundSection.style.background = '';
 		topbar.style.position = '';
 		topbar.style.bottom = '';
-		minimizeButton.classList.remove('glyphicon-fullscreen');
-		minimizeButton.className = 'glyphicon glyphicon-minus-sign';
-		growthLink.setAttribute("onclick",'minimizePage()');
-
+		shrinkLink.style.display 	   = 'block';         
+		growthLink.style.display  	   = 'none';
 	}
+
+	addEvent(growthLink, 'click', maximizePage);
+
+
 
 	function loadChatbox(){
 		interfaceSection.style.display = 'inline-flex';
@@ -207,7 +229,13 @@
 		settingSection.style.display   = 'none';
 		settingButton.classList.remove('interfaceOn');
 		backgroundSection.style.background = 'brown';
+		topbar.style.position = '';
+		topbar.style.bottom = '';
+		shrinkLink.style.display 	   = 'block';         
+		growthLink.style.display  	   = 'none';
 	}
+
+	addEvent(envelopeButton, 'click', loadChatbox);
 
 	function loadOnlineList(){
 		onlineSection.style.display      = 'inline-flex';
@@ -217,7 +245,13 @@
 		settingSection.style.display      = 'none';
 		settingButton.classList.remove('interfaceOn');
 		backgroundSection.style.background = 'brown';
+		topbar.style.position = '';
+		topbar.style.bottom = '';
+		shrinkLink.style.display 	   = 'block';         
+		growthLink.style.display  	   = 'none';
 	}
+
+	addEvent(messageButton, 'click', loadOnlineList);
 
 	function loadSetting(){
 		settingSection.style.display       = 'flex';
@@ -227,8 +261,13 @@
 		onlineSection.style.display       = 'none';
 		messageButton.classList.remove('interfaceOn');
 		backgroundSection.style.background = 'rgb(208,210,216)';
-
+		topbar.style.position = '';
+		topbar.style.bottom = '';
+		shrinkLink.style.display 	   = 'block';         
+		growthLink.style.display  	   = 'none';
 	}
+
+	addEvent(optionsicon, 'click', loadSetting);
 
 	function validateMessage(){
 		/*
@@ -241,22 +280,53 @@
 
 	function changeFont(){
 
-
 		if(fontStyle.value == "Georgia" ){
 		chatbox.className = "";
 		chatbox.classList.add('georgia', 'container');
 		console.log(fontStyle.value);
-} else if (fontStyle.value == "Palatino" ){
+		} else if (fontStyle.value == "Palatino" ){
 		chatbox.className = "";
 		chatbox.classList.add('palatino', 'container');
-} else if (fontStyle.value == "Helvetica" ){
+		} else if (fontStyle.value == "Helvetica" ){
 		chatbox.className = "";
 		chatbox.classList.add('helvetica', 'container');
-} else if (fontStyle.value == "Times" ){
+		} else if (fontStyle.value == "Times" ){
 		chatbox.className = "";
 		chatbox.classList.add('times', 'container');
-}
-}
+	}
+	}
+
+	addEvent(fontStyle, 'change', changeFont);
+	/*
+	function stillHere(){
+		logOutModal.style.display = 'none';
+		logOutModal.style.zIndex  = '-10';
+		setTimeout(function(){ 
+			logOutModal.style.display = '';
+			logOutModal.style.zIndex  = '';
+		}, 1800000);
+	}
+
+	function iAmGone(){
+		<?php
+		/*
+			if (isset($_POST['logout'])) {
+				
+			header('Location: http://localhost:8881/Chat-Box%20Default/index.php');
+			queryMysql("UPDATE member SET status=0 WHERE user='$userlogin'");
+			destroy_session();
+		
+			}
+		*/
+		?>
+	}
+
+*/
+
+	setTimeout(function(){ 
+		logOutModal.style.display = "";
+		logOutModal.style.zIndex  = "";
+	}, 1800000);
 		
 
 	function colorPatternsDisplay(){
@@ -282,6 +352,8 @@
 		
 		*/
 	}
+
+	addEvent(colorStyle, 'change', colorPatternsDisplay);
 
 
 

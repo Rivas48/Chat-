@@ -206,7 +206,6 @@ input:checked + .slider:before {
 }
 
 .glyphicon-plus-sign{
-	top:5px;
 	color:white;
 	margin-right:5px;
 }

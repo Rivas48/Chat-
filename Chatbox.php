@@ -109,8 +109,8 @@
 			</div>
 
 </body>
-<script src='JS_Function/jquery.js'></script>
-<script src='JS_Function/auto_chat.js'></script>
+<script src='jquery.js'></script>
+<script src='auto_chat.js'></script>
 <script>
 		//Selecting Sections
 
@@ -228,11 +228,11 @@
 		messageButton.classList.remove('interfaceOn');
 		settingSection.style.display   = 'none';
 		settingButton.classList.remove('interfaceOn');
-		backgroundSection.style.background = 'brown';
 		topbar.style.position = '';
 		topbar.style.bottom = '';
 		shrinkLink.style.display 	   = 'block';         
 		growthLink.style.display  	   = 'none';
+		envelopeButton.style.color = '#337ab7';
 	}
 
 	addEvent(envelopeButton, 'click', loadChatbox);
@@ -244,11 +244,11 @@
 		envelopeButton.classList.remove('interfaceOn');
 		settingSection.style.display      = 'none';
 		settingButton.classList.remove('interfaceOn');
-		backgroundSection.style.background = 'brown';
 		topbar.style.position = '';
 		topbar.style.bottom = '';
 		shrinkLink.style.display 	   = 'block';         
 		growthLink.style.display  	   = 'none';
+		messageButton.style.color = '#337ab7';
 	}
 
 	addEvent(messageButton, 'click', loadOnlineList);
@@ -265,6 +265,7 @@
 		topbar.style.bottom = '';
 		shrinkLink.style.display 	   = 'block';         
 		growthLink.style.display  	   = 'none';
+		settingButton.style.color = '#337ab7';
 	}
 
 	addEvent(optionsicon, 'click', loadSetting);
@@ -330,27 +331,24 @@
 		
 
 	function colorPatternsDisplay(){
-				/* if(fontStyle.value == Generic ){
-		.className = "";
-		.classList.add('generic');
+		 if(colorStyle.value == 'Generic' ){
+		backgroundSection.style.background = 'brown';
+		console.log('brown');
 }
 
-		if (fontStyle.value == Future){
-		.className = "";
-		.classList.add('future');
+		if (colorStyle.value == 'Future'){
+		backgroundSection.style.background = 'green';
 }
 
-		if (fontStyle.value == Bright){
-		.className = "";
-		.classList.add('bright');
+		if (colorStyle.value == 'Bright'){
+		backgroundSection.style.background = 'pink';
 }
 
-		if (fontStyle.value == Dark){
-		.className = "";
-		.classList.add('dark');
+		if (colorStyle.value == 'Dark'){
+		backgroundSection.style.background = 'purple';
 }
 		
-		*/
+		
 	}
 
 	addEvent(colorStyle, 'change', colorPatternsDisplay);
